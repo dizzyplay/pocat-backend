@@ -1,20 +1,24 @@
 {
-   "name": "ts-typeorm-healthpocket-backend",
-   "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
-   "devDependencies": {
-      "@types/node": "^11.13.0",
-      "prettier": "^1.16.4",
-      "ts-node": "3.3.0",
-      "typescript": "^3.4.1"
-   },
-   "dependencies": {
-      "graphql-yoga": "^1.17.4",
-      "pg": "^7.9.0",
-      "reflect-metadata": "^0.1.13",
-      "typeorm": "0.2.16"
-   },
-   "scripts": {
-      "start": "ts-node src/index.ts"
-   }
+  "name": "ts-typeorm-healthpocket-backend",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "@types/node": "^11.13.0",
+    "prettier": "^1.16.4",
+    "ts-node": "3.3.0",
+    "typescript": "^3.4.1"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "dotenv": "^7.0.0",
+    "graphql-tools": "^4.0.4",
+    "graphql-yoga": "^1.17.4",
+    "merge-graphql-schemas": "^1.5.8",
+    "pg": "^7.9.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.2.16"
+  },
+  "scripts": {
+    "start": "nodemon --exec ts-node ./src/server.ts"
+  }
 }
