@@ -1,3 +1,5 @@
 type User{
   uuid:String
+  username:String
+  email:String
 }

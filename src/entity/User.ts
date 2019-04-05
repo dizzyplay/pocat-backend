@@ -1,4 +1,9 @@
-import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -7,4 +12,16 @@ export class User {
 
   @Column({unique: true})
   email: string;
+
+  @Column({nullable: true})
+  username: string;
+
+  @Column({nullable: true})
+  secretCode: string;
+
+  @CreateDateColumn({type: 'timestamp'})
+  createdAt: Date;
+
+  @CreateDateColumn({type: 'timestamp'})
+  updatedAt: Date;
 }

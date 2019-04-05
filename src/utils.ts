@@ -1,11 +1,39 @@
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
+import * as nodemailer from "nodemailer";
+import * as sgTransport from "nodemailer-sendgrid-transport";
+import { adjectives, nouns } from "src/word";
 
 export const setPassword = async password => {
   const saltRound = 10;
-  const hash = await bcrypt.hash(password, saltRound).then();
-  return hash;
+  return await bcrypt.hash(password, saltRound).then();
 };
 
 export const checkPassword = async (password, hash) => {
   return bcrypt.compare(password, hash);
+};
+
+export const generateSecret = () => {
+  const randomNumber = Math.floor(Math.random() * adjectives.length);
+  return `${adjectives[randomNumber]} ${nouns[randomNumber]}`;
+};
+
+export const sendMail = email => {
+  let options = {
+    auth: {
+      api_user: process.env.SENDMAIL_USERNAME,
+      api_key: process.env.SENDMAIL_PASSWORD
+    }
+  };
+  const client = nodemailer.createTransport(sgTransport(options));
+  return client.sendMail(email);
+};
+
+export const sendSecretMail = (address, secret) => {
+  const email = {
+    from: "kingcat@healthpocat.com",
+    to: address,
+    subject: "로그인 인증 번호입니다.",
+    html: ` <h1>안녕하세요</h1> <br/> 하단의 코드를 복사 붙여넣기 해주세요 <br/><strong>${secret}</strong>`
+  };
+  return sendMail(email);
 };

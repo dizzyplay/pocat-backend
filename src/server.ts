@@ -1,13 +1,19 @@
 import {GraphQLServer} from 'graphql-yoga';
-import {createConnection, EntityManager} from 'typeorm';
+import {createConnection} from 'typeorm';
 import schema from './schema';
 import './env';
-import * as bcrypt from 'bcrypt';
 
 const PORT = process.env.PORT || 4000;
 
-const server = new GraphQLServer({
-  schema,
-});
+createConnection()
+  .then(async connection => {
+    const server = new GraphQLServer({
+      schema,
+      context: ({request}) => ({request, connection}),
+    });
 
-server.start({port: PORT}, () => console.log(`server is running on ${PORT}`));
+    server.start({port: PORT}, () =>
+      console.log(`server is running on ${PORT}`),
+    );
+  })
+  .catch(err => console.log(err));
