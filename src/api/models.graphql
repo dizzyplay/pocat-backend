@@ -6,3 +6,9 @@ type User{
   secretCode:String
   password:String
 }
+
+type UserProfile{
+  uuid:String!
+  username:String
+  email:String!
+}

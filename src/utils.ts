@@ -2,6 +2,7 @@ import * as bcrypt from "bcrypt";
 import * as nodemailer from "nodemailer";
 import * as sgTransport from "nodemailer-sendgrid-transport";
 import { adjectives, nouns } from "src/word";
+import * as jwt from "jsonwebtoken";
 
 export const genHash = async (param: string): Promise<string> => {
   const saltRound: number = 10;
@@ -40,4 +41,12 @@ export const sendSecretMail = (address, secret) => {
     html: ` <h1>안녕하세요</h1> <br/> 하단의 코드를 복사 붙여넣기 해주세요 <br/><strong>${secret}</strong>`
   };
   return sendMail(email);
+};
+
+export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
+
+export const isAuthenticated = user => {
+  if (!user) {
+    throw Error("Needs authenticated...");
+  }
 };
