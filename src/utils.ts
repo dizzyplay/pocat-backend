@@ -1,11 +1,15 @@
-import bcrypt from "bcrypt";
+import * as bcrypt from "bcrypt";
 import * as nodemailer from "nodemailer";
 import * as sgTransport from "nodemailer-sendgrid-transport";
 import { adjectives, nouns } from "src/word";
 
-export const setPassword = async password => {
-  const saltRound = 10;
-  return await bcrypt.hash(password, saltRound).then();
+export const genHash = async (param: string): Promise<string> => {
+  const saltRound: number = 10;
+  try {
+    return await bcrypt.hash(param, saltRound);
+  } catch {
+    throw Error("hash generating failed");
+  }
 };
 
 export const checkPassword = async (password, hash) => {

@@ -1,5 +1,8 @@
 type User{
-  uuid:String
+  uuid:String!
   username:String
-  email:String
+  email:String!
+  status:Boolean!
+  secretCode:String
+  password:String
 }

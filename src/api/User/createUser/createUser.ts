@@ -10,7 +10,7 @@ export default {
       const secret = generateSecret();
       let user = manager.create(User, { email, secretCode: secret });
       await sendSecretMail(email, secret);
-      return (user = await manager.save(user));
+      return manager.save(user);
     }
   }
 };
