@@ -1,10 +1,7 @@
 import { EntityManager } from "typeorm";
 import { User } from "src/entity/User";
 import { generateSecret, sendSecretMail } from "src/utils";
-interface Send {
-  secret: string;
-  user: { id: string };
-}
+
 export default {
   Mutation: {
     createUser: async (_, args, { connection }) => {
