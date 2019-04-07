@@ -8,7 +8,7 @@ export default {
       const { id, password } = args;
       const manager: EntityManager = connection.manager;
       const user = await manager.findOne(User, id);
-      if (user.status === true && user.password === null) {
+      if (user.activation === true && user.password === null) {
         genHash(password).then(async (hash: string) => {
           user.password = hash;
           await manager.save(user);

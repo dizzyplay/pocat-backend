@@ -25,6 +25,9 @@
     "typeorm": "0.2.16"
   },
   "scripts": {
-    "start": "nodemon --exec ts-node -r tsconfig-paths/register ./src/server.ts"
+    "start": "nodemon --exec ts-node -r tsconfig-paths/register ./src/server.ts",
+    "typeorm-generate":"ts-node ./node_modules/typeorm/cli.js migration:generate -n PoketMigration",
+    "typeorm-run":"ts-node ./node_modules/typeorm/cli.js migration:run",
+    "typeorm-revert":"ts-node ./node_modules/typeorm/cli.js migration:revert"
   }
 }

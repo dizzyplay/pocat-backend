@@ -8,7 +8,7 @@ export default {
       const manager: EntityManager = connection.manager;
       const user = await manager.findOne(User, { email });
       if (user.secretCode === secret) {
-        user.status = true;
+        user.activation = true;
         user.secretCode = null;
         await manager.save(user);
         return true;

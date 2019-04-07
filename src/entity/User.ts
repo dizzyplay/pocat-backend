@@ -2,8 +2,11 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  CreateDateColumn
+  CreateDateColumn,
+  OneToMany,
+  UpdateDateColumn
 } from "typeorm";
+import { Cat } from "src/entity/Cat/Cat";
 
 @Entity()
 export class User {
@@ -23,11 +26,14 @@ export class User {
   secretCode: string;
 
   @Column({ default: false })
-  status: boolean;
+  activation: boolean;
+
+  @OneToMany(type => Cat, cat => cat.user)
+  cats: Cat[];
 
   @CreateDateColumn({ type: "timestamp" })
   createdAt: Date;
 
-  @CreateDateColumn({ type: "timestamp" })
+  @UpdateDateColumn({ type: "timestamp" })
   updatedAt: Date;
 }

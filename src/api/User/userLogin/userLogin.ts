@@ -1,6 +1,6 @@
 import { EntityManager } from "typeorm";
-import { User } from "../../../entity/User";
-import { checkPassword, generateToken } from "../../../utils";
+import { User } from "src/entity/User";
+import { checkPassword, generateToken } from "src/utils";
 
 export default {
   Query: {

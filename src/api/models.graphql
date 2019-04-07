@@ -2,13 +2,54 @@ type User{
   uuid:String!
   username:String
   email:String!
-  status:Boolean!
-  secretCode:String
-  password:String
+  activation:Boolean!
+  createdAt:String!
+  updatedAt:String!
 }
 
 type UserProfile{
   uuid:String!
   username:String
   email:String!
+  cats:[Cat]
+  createdAt:String!
+}
+enum Gender{
+  MALE,
+  FEMALE
+}
+type Cat{
+  uuid: String
+  user: User
+  name: String
+  gender: String
+  kinds: CatKinds
+  weights: [CatWeight]
+  neutering: Boolean
+  pregnant: Boolean
+  feed: CatFeed
+  ribcage: Int
+  LIM: Int
+  BMI: Int
+  birth: String
+  createdAt:String
+  updatedAt:String
+}
+
+type CatKinds{
+  id:Int!
+  name:String!
+}
+type CatFeed{
+  id:Int!
+  title:String!
+  kcal:Float!
+}
+
+type CatWeight{
+  id:Int!
+  weight:Float!
+  cat:Cat!
+  createdAt:String!
+  updatedAt:String!
 }

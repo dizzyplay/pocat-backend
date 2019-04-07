@@ -6,6 +6,7 @@
    "port":"5432",
    "username":"postgres",
    "database":"pocat_test_db",
+   "migrationTableName":"my_migration_table",
    "entities": [
       "src/entity/**/*.ts"
    ],
