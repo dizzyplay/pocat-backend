@@ -14,10 +14,7 @@ type UserProfile{
   cats:[Cat]
   createdAt:String!
 }
-enum Gender{
-  MALE,
-  FEMALE
-}
+
 type Cat{
   uuid: String
   user: User
