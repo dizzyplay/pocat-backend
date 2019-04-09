@@ -14,7 +14,7 @@ export class CatKinds {
   id: number;
 
   @Column()
-  name: string;
+  title: string;
 
   @OneToMany(type => Cat, cat => cat.kinds)
   cats: Cat[];
