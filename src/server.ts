@@ -16,7 +16,7 @@ createConnection()
     });
     server.express.use(authenticationJwt);
     await server.start({ port: PORT }, () =>
-      console.log(`server is running on ${PORT}`)
+      console.log(`server is running on http://localhost:${PORT}`)
     );
   })
   .catch(err => console.log(err));
