@@ -21,10 +21,13 @@ export class Cat {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
-  @ManyToOne(type => User, user => user.cats)
+  @ManyToOne(type => User, user => user.cats, { nullable: false })
   user: User;
 
-  @Column()
+  @Column({ nullable: true })
+  image: string;
+
+  @Column({ nullable: false })
   name: string;
 
   @Column({ type: "enum", enum: Gender, default: Gender.MALE })
@@ -45,13 +48,13 @@ export class Cat {
   @ManyToOne(type => CatFeed, feed => feed.cats)
   feed: CatFeed;
 
-  @Column({ type: "decimal" })
+  @Column({ type: "decimal", nullable: true })
   ribcage: number;
 
-  @Column({ type: "decimal" })
+  @Column({ type: "decimal", nullable: true })
   LIM: number;
 
-  @Column()
+  @Column({ nullable: true })
   BMI: number;
 
   @Column({ type: "date" })
