@@ -1,0 +1,11 @@
+type Mutation{
+  addCat(
+  name:String!
+  gender:String!
+  kindsId:Int!
+  neutering:Boolean
+  pregnant:Boolean
+  image:String
+  birth:String):Cat!
+}
+
