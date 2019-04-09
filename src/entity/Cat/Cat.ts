@@ -21,7 +21,10 @@ export class Cat {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
-  @ManyToOne(type => User, user => user.cats, { nullable: false })
+  @ManyToOne(type => User, user => user.cats, {
+    nullable: false,
+    onDelete: "CASCADE"
+  })
   user: User;
 
   @Column({ nullable: true })

@@ -13,7 +13,7 @@ export class CatWeight {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(type => Cat, cat => cat.weights)
+  @ManyToOne(type => Cat, cat => cat.weights, { onDelete: "CASCADE" })
   cat: Cat;
 
   @Column({ type: "decimal" })
