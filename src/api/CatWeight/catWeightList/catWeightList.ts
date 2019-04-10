@@ -10,7 +10,7 @@ export default {
       const catWeightRepo = connection.getRepository(CatWeight);
       return await catWeightRepo.find({
         where: { cat: catId },
-        take: limit,
+        take: limit ? limit : 5,
         order: { createdAt: "DESC" },
         relations: ["cat"]
       });
