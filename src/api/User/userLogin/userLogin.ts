@@ -1,14 +1,12 @@
-import { EntityManager } from "typeorm";
 import { User } from "src/entity/User";
 import { checkPassword, generateToken } from "src/utils";
 
 export default {
   Query: {
-    userLogin: async (_, args, { connection }) => {
+    userLogin: async (_, args) => {
       const { email, password }: { email: string; password: string } = args;
-      const manager: EntityManager = connection.manager;
       try {
-        const user = await manager.findOne(User, { email });
+        const user = await User.findOne({ email });
         const res = await checkPassword(password, user.password);
         if (res) {
           return generateToken(user.uuid);

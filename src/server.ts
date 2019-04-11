@@ -5,10 +5,11 @@ import "./env";
 import "reflect-metadata";
 import { authenticationJwt } from "./mypassport";
 import { isAuthenticated } from "src/utils";
+import connectionOptions from "./ormconfig";
 
 const PORT = process.env.PORT || 4000;
 
-createConnection()
+createConnection(connectionOptions)
   .then(async connection => {
     const server = new GraphQLServer({
       schema,
