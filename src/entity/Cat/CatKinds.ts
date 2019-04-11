@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -9,7 +10,7 @@ import {
 import { Cat } from "src/entity/Cat/Cat";
 
 @Entity()
-export class CatKinds {
+export class CatKinds extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 

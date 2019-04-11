@@ -4,12 +4,13 @@ import {
   Column,
   CreateDateColumn,
   OneToMany,
-  UpdateDateColumn
+  UpdateDateColumn,
+  BaseEntity
 } from "typeorm";
 import { Cat } from "src/entity/Cat/Cat";
 
 @Entity()
-export class User {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
