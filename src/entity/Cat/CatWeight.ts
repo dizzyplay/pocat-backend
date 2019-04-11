@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -9,7 +10,7 @@ import {
 import { Cat } from "src/entity/Cat/Cat";
 
 @Entity()
-export class CatWeight {
+export class CatWeight extends BaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -19,9 +20,9 @@ export class CatWeight {
   @Column({ type: "decimal" })
   weight: number;
 
-  @CreateDateColumn({ type: "timestamp" })
+  @CreateDateColumn({ type: "date" })
   createdAt: Date;
 
-  @UpdateDateColumn({ type: "timestamp" })
+  @UpdateDateColumn({ type: "date" })
   updatedAt: Date;
 }

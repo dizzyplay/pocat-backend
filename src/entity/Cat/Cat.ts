@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -17,7 +18,7 @@ export enum Gender {
   FEMALE = "female"
 }
 @Entity()
-export class Cat {
+export class Cat extends BaseEntity{
   @PrimaryGeneratedColumn("uuid")
   uuid: string;
 
@@ -63,9 +64,9 @@ export class Cat {
   @Column({ type: "date" })
   birth: Date;
 
-  @CreateDateColumn({ type: "timestamp" })
+  @CreateDateColumn({ type: "date" })
   createdAt: Date;
 
-  @UpdateDateColumn({ type: "timestamp" })
+  @UpdateDateColumn({ type: "date" })
   updatedAt: Date;
 }
