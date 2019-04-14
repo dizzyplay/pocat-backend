@@ -18,6 +18,7 @@ type UserProfile{
 type Cat{
   uuid: String
   user: User
+    image:String
   name: String
   gender: String
   kinds: CatKinds
