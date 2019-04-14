@@ -1,0 +1,3 @@
+type Query{
+    catInfo(uuid:String!):String
+}
