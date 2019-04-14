@@ -10,10 +10,9 @@ export default {
       if (user.secretCode === secret) {
         user.activation = true;
         user.secretCode = null;
-        await manager.save(user);
-        return true;
+        return await manager.save(user);
       }
-      return false;
+      throw Error("Wrong Secret Key");
     }
   }
 };
