@@ -1,8 +1,9 @@
 type Mutation{
-  userLogin(email:String!, password:String!):Token!
+  userLogin(email:String!, password:String!):Token
 }
 
 type Token{
     token:String!
 }
+
 
