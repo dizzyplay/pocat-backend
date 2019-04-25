@@ -4,6 +4,7 @@
   "description": "Awesome project developed with TypeORM.",
   "devDependencies": {
     "@types/node": "^11.13.0",
+    "nodemon": "^1.18.11",
     "prettier": "^1.16.4",
     "ts-node": "3.3.0",
     "typescript": "^3.4.1"
@@ -26,8 +27,8 @@
   },
   "scripts": {
     "start": "nodemon --exec ts-node -r tsconfig-paths/register ./src/server.ts",
-    "typeorm-generate":"ts-node ./node_modules/typeorm/cli.js migration:generate -n PoketMigration",
-    "typeorm-run":"ts-node ./node_modules/typeorm/cli.js migration:run",
-    "typeorm-revert":"ts-node ./node_modules/typeorm/cli.js migration:revert"
+    "typeorm-generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -n PoketMigration",
+    "typeorm-run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "typeorm-revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   }
 }
