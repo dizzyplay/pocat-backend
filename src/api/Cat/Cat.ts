@@ -10,7 +10,7 @@ export default {
         order: {
           createdAt: "DESC"
         },
-        take: 1
+        take: 10
       });
     }
   }
