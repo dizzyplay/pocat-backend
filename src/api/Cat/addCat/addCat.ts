@@ -12,8 +12,8 @@ export default {
         name,
         gender,
         kinds: kindsId,
-        neutering,
-        pregnant,
+        neutering: !!neutering,
+        pregnant: !!pregnant,
         image,
         birth: new Date(birth),
         user: user.uuid
